@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /politica-de-privacidade.html
+
+Sitemap: https://nexlorn.com.br/sitemap.xml

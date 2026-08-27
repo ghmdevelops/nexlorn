@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { FaAward, FaHandshake, FaRocket, FaUsers } from 'react-icons/fa';
 import Reveal from '../Reveal/Reveal.jsx';
 import './About.css';
@@ -9,7 +10,67 @@ const STATS = [
   { icon: <FaHandshake />, value: '98%', label: 'Taxa de retenção de clientes' },
 ];
 
+const CODE_SNIPPETS = {
+  SAP: `GET /sap/opu/odata/API_SALES_ORDER
+Authorization: Bearer {token}
+
+// Sincroniza pedidos em tempo real
+if (response.status === 200) {
+  integrarComERP(response.data);
+}`,
+  React: `function Dashboard() {
+  const { data } = useMetrics();
+
+  return (
+    <Chart data={data} live />
+  );
+}`,
+  IA: `const agente = new Agente({
+  modelo: 'nexlorn-ia',
+});
+
+await agente.executar(
+  'Otimizar fluxo financeiro'
+);`,
+  RPA: `robot.on('nota:recebida', async (doc) => {
+  await validar(doc);
+  await lancarNoERP(doc);
+});
+
+// -60% em tarefas manuais`,
+  Cloud: `service: nexlorn-api
+provider: aws
+scaling: auto
+regions:
+  - sa-east-1
+status: online ✔`,
+};
+
+const CODE_TAGS = Object.keys(CODE_SNIPPETS);
+
 function About() {
+  const [activeTag, setActiveTag] = useState(CODE_TAGS[0]);
+  const [typed, setTyped] = useState('');
+  const timeoutRef = useRef(null);
+
+  useEffect(() => {
+    const fullText = CODE_SNIPPETS[activeTag];
+    setTyped('');
+    let index = 0;
+
+    const typeNext = () => {
+      index += 1;
+      setTyped(fullText.slice(0, index));
+      if (index < fullText.length) {
+        timeoutRef.current = setTimeout(typeNext, 14);
+      }
+    };
+
+    timeoutRef.current = setTimeout(typeNext, 14);
+
+    return () => clearTimeout(timeoutRef.current);
+  }, [activeTag]);
+
   return (
     <section id="sobre" className="section about">
       <div className="container about__inner">
@@ -20,17 +81,26 @@ function About() {
               <span className="about__dot" />
               <span className="about__dot" />
               <span className="about__dot" />
+              <span className="about__frame-title">{activeTag.toLowerCase()}.snippet</span>
             </div>
             <div className="about__frame-body">
-              <div className="about__line" style={{ width: '80%' }} />
-              <div className="about__line" style={{ width: '55%' }} />
-              <div className="about__line" style={{ width: '68%' }} />
+              <pre className="about__code">
+                <code>
+                  {typed}
+                  <span className="about__code-cursor" aria-hidden="true" />
+                </code>
+              </pre>
               <div className="about__chip-row">
-                <span className="about__chip">SAP</span>
-                <span className="about__chip">React</span>
-                <span className="about__chip">IA</span>
-                <span className="about__chip">RPA</span>
-                <span className="about__chip">Cloud</span>
+                {CODE_TAGS.map((tag) => (
+                  <button
+                    key={tag}
+                    type="button"
+                    className={`about__chip${tag === activeTag ? ' about__chip--active' : ''}`}
+                    onClick={() => setActiveTag(tag)}
+                  >
+                    {tag}
+                  </button>
+                ))}
               </div>
             </div>
           </div>

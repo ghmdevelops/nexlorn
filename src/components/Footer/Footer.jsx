@@ -1,4 +1,4 @@
-import { FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
+import { FaWhatsapp } from 'react-icons/fa';
 import './Footer.css';
 
 const FOOTER_LINKS = {
@@ -27,12 +27,6 @@ function Footer() {
           <div className="footer__social">
             <a href="https://wa.me/5511981835197" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
               <FaWhatsapp />
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <FaLinkedin />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <FaInstagram />
             </a>
           </div>
         </div>
