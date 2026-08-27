@@ -41,7 +41,12 @@ function CookieConsent() {
         <h3>Nós usamos cookies</h3>
         <p>
           Utilizamos cookies essenciais para o funcionamento do site e, com seu consentimento,
-          cookies analíticos para melhorar sua experiência, em conformidade com a LGPD.
+          cookies analíticos para melhorar sua experiência, em conformidade com a LGPD. Saiba mais
+          na nossa{' '}
+          <a href="/politica-de-privacidade.html" target="_blank" rel="noopener noreferrer">
+            Política de Privacidade
+          </a>
+          .
         </p>
 
         {detailsOpen && (

@@ -1,0 +1,100 @@
+.share-button {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  z-index: 1200;
+}
+
+.share-button__trigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 999px;
+  background: var(--gradient-primary, linear-gradient(135deg, #3b82ff 0%, #14e0b4 100%));
+  color: #06101f;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 16px 32px rgba(20, 224, 180, 0.28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.share-button__trigger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(20, 224, 180, 0.36);
+}
+
+.share-button__trigger svg {
+  font-size: 18px;
+}
+
+.share-button__menu {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 210px;
+  padding: 10px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, var(--color-bg-alt, #0d1428) 0%, var(--color-bg, #060a17) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+  animation: share-menu-in 0.2s ease;
+}
+
+@keyframes share-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.share-button__option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--color-text, #e7ebf5);
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.share-button__option:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-accent, #14e0b4);
+}
+
+.share-button__option svg {
+  font-size: 17px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .share-button {
+    left: 16px;
+    bottom: 16px;
+  }
+
+  .share-button__trigger span {
+    display: none;
+  }
+
+  .share-button__trigger {
+    padding: 14px;
+  }
+}

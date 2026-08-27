@@ -9,6 +9,7 @@ import CTA from './components/CTA/CTA.jsx';
 import Contact from './components/Contact/Contact.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import CookieConsent from './components/CookieConsent/CookieConsent.jsx';
+import ShareButton from './components/ShareButton/ShareButton.jsx';
 import './App.css';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <ShareButton />
       <CookieConsent />
     </div>
   );

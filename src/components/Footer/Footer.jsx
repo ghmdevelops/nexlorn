@@ -53,8 +53,7 @@ function Footer() {
         <div className="container footer__bottom-inner">
           <span>© {year} Nexlorn. Todos os direitos reservados.</span>
           <div className="footer__policies">
-            <a href="#inicio">Termos de uso</a>
-            <a href="#inicio">Política de privacidade</a>
+            <a href="/politica-de-privacidade.html">Política de privacidade</a>
           </div>
         </div>
       </div>
