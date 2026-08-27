@@ -5,7 +5,7 @@ import './Hero.css';
 const HERO_TAGS = ['Consultoria SAP', 'Web & Mobile', 'IA & Agentes Inteligentes'];
 
 const HERO_STATS = [
-  { value: '20+', label: 'Especialistas dedicados' },
+  { value: '15+', label: 'Especialistas dedicados' },
   { value: '20+', label: 'Projetos entregues' },
   { value: '98%', label: 'Clientes satisfeitos' },
 ];

@@ -6,7 +6,7 @@ import './About.css';
 const STATS = [
   { icon: <FaAward />, value: '100%', label: 'Foco em qualidade e resultado' },
   { icon: <FaRocket />, value: '20+', label: 'Projetos entregues' },
-  { icon: <FaUsers />, value: '20+', label: 'Especialistas na equipe' },
+  { icon: <FaUsers />, value: '15+', label: 'Especialistas na equipe' },
   { icon: <FaHandshake />, value: '98%', label: 'Taxa de retenção de clientes' },
 ];
 
