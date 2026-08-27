@@ -5,6 +5,25 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Força HTTPS e o domínio canônico (sem www)
+[[redirects]]
+  from = "http://nexlorn.com.br/*"
+  to = "https://nexlorn.com.br/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.nexlorn.com.br/*"
+  to = "https://nexlorn.com.br/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.nexlorn.com.br/*"
+  to = "https://nexlorn.com.br/:splat"
+  status = 301
+  force = true
+
 # SPA fallback: garante que rotas/âncoras funcionem em qualquer refresh
 [[redirects]]
   from = "/*"
