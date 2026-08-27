@@ -1,0 +1,65 @@
+.cta__box {
+  background: var(--gradient-primary);
+  border-radius: var(--radius-lg);
+  padding: 56px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  box-shadow: var(--shadow-glow);
+}
+
+.cta__content {
+  max-width: 560px;
+}
+
+.cta__content h2 {
+  color: #04101f;
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+  margin-bottom: 12px;
+}
+
+.cta__content p {
+  color: rgba(4, 16, 31, 0.75);
+  font-size: 1rem;
+}
+
+.cta__actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cta__actions .btn-primary {
+  background: #04101f;
+  color: #fff;
+  box-shadow: none;
+}
+
+.cta__phone {
+  color: #04101f;
+  border-color: rgba(4, 16, 31, 0.3);
+}
+
+.cta__phone:hover {
+  border-color: #04101f;
+  color: #04101f;
+}
+
+@media (max-width: 768px) {
+  .cta__box {
+    padding: 40px 28px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cta__actions {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .cta__actions .btn {
+    flex: 1;
+  }
+}
