@@ -5,6 +5,7 @@ import About from './components/About/About.jsx';
 import WhyUs from './components/WhyUs/WhyUs.jsx';
 import Process from './components/Process/Process.jsx';
 import Testimonials from './components/Testimonials/Testimonials.jsx';
+import FAQ from './components/FAQ/FAQ.jsx';
 import CTA from './components/CTA/CTA.jsx';
 import Contact from './components/Contact/Contact.jsx';
 import Footer from './components/Footer/Footer.jsx';
@@ -23,6 +24,7 @@ function App() {
         <WhyUs />
         <Process />
         <Testimonials />
+        <FAQ />
         <CTA />
         <Contact />
       </main>
