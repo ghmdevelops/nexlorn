@@ -2,7 +2,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 import './WhatsAppButton.css';
 
 const PHONE = '5511981835197';
-const MESSAGE = 'Olá! Vi o site da Nexlorn e quero saber mais sobre as soluções de vocês.';
+const MESSAGE = 'Oi! 👋 Estou explorando soluções para potencializar meu negócio e a Nexlorn chamou minha atenção. Gostaria de agendar uma consultoria para entender melhor como vocês podem ajudar. Qual seria o melhor horário?';
 
 function WhatsAppButton() {
   return (

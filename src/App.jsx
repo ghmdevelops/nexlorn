@@ -11,6 +11,7 @@ import Contact from './components/Contact/Contact.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import CookieConsent from './components/CookieConsent/CookieConsent.jsx';
 import ShareButton from './components/ShareButton/ShareButton.jsx';
+import WhatsAppButton from './components/WhatsAppButton/WhatsAppButton.jsx';
 import './App.css';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
       </main>
       <Footer />
       <ShareButton />
+      <WhatsAppButton />
       <CookieConsent />
     </div>
   );
