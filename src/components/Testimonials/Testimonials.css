@@ -4,7 +4,8 @@
 
 .testimonials__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 420px));
+  justify-content: center;
   gap: 26px;
 }
 
@@ -15,6 +16,17 @@
   padding: 34px 28px;
   display: flex;
   flex-direction: column;
+}
+
+.testimonial-card__preview {
+  align-self: flex-start;
+  margin-bottom: 16px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px dashed rgba(246, 196, 83, 0.6);
+  color: var(--color-gold);
+  font-size: 0.72rem;
+  font-weight: 600;
 }
 
 .testimonial-card__quote-icon {
@@ -57,14 +69,18 @@
   font-size: 0.82rem;
 }
 
-@media (max-width: 1080px) {
-  .testimonials__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 640px) {
   .testimonials__grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .testimonial-card {
+    padding: 26px 22px;
+  }
+
+  .testimonial-card blockquote {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
   }
 }

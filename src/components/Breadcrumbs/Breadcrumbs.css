@@ -1,0 +1,30 @@
+.breadcrumbs {
+  margin-bottom: 22px;
+  font-size: 0.85rem;
+  color: var(--color-text-dim);
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.breadcrumbs li + li::before {
+  content: '/';
+  margin-right: 6px;
+  opacity: 0.5;
+}
+
+.breadcrumbs a {
+  color: var(--color-text-muted);
+  transition: color var(--transition);
+}
+
+.breadcrumbs a:hover {
+  color: var(--color-accent);
+}
+
+.breadcrumbs [aria-current] {
+  color: var(--color-text);
+}

@@ -1,7 +1,7 @@
 import { FiArrowLeft, FiMail } from 'react-icons/fi';
 import './PrivacyPolicy.css';
 
-const UPDATED_AT = '27 de agosto de 2026';
+const UPDATED_AT = '6 de outubro de 2026';
 
 function PrivacyPolicy() {
   return (
@@ -62,12 +62,18 @@ function PrivacyPolicy() {
             do banner de cookies exibido na primeira visita. Você pode alterar sua escolha a
             qualquer momento limpando os dados de navegação do seu navegador.
           </p>
+          <p>
+            Os cookies analíticos são do Google Analytics e só são ativados se você clicar em
+            "Aceitar todos". Eles nos mostram, de forma agregada, quantas pessoas visitam o site,
+            de onde vêm e quais páginas e botões de contato são mais usados.
+          </p>
 
           <h2>4. Compartilhamento de dados</h2>
           <p>
             Não vendemos nem compartilhamos seus dados pessoais com terceiros para fins de
             marketing. Utilizamos o serviço EmailJS exclusivamente para processar o envio das
-            mensagens do formulário de contato ao nosso time comercial.
+            mensagens do formulário de contato ao nosso time comercial e, com o seu consentimento,
+            o Google Analytics para medir o uso do site.
           </p>
 
           <h2>5. Armazenamento e segurança</h2>
@@ -104,7 +110,7 @@ function PrivacyPolicy() {
 
       <footer className="legal-footer">
         <div className="container">
-          <p>© {new Date().getFullYear()} Nexlorn. Todos os direitos reservados.</p>
+          <p suppressHydrationWarning>© {new Date().getFullYear()} Nexlorn. Todos os direitos reservados.</p>
         </div>
       </footer>
     </div>

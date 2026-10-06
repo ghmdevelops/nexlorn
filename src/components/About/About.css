@@ -67,7 +67,7 @@
 
 .about__code {
   margin: 0;
-  min-height: 132px;
+  min-height: 12.8em;
   font-family: 'Courier New', monospace;
   font-size: 0.85rem;
   line-height: 1.6;
@@ -176,9 +176,55 @@
     grid-template-columns: 1fr;
     gap: 48px;
   }
+
+  .about__visual {
+    order: 2;
+  }
+
+  .about__frame {
+    max-width: 520px;
+  }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 560px) {
+  .about__inner {
+    gap: 36px;
+  }
+
+  .about__frame-body {
+    padding: 22px 18px;
+  }
+
+  .about__code {
+    font-size: 0.78rem;
+  }
+
+  .about__chip-row {
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .about__chip {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+
+  .about__stats {
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .about__stat-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .about__stat strong {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 380px) {
   .about__stats {
     grid-template-columns: 1fr;
   }

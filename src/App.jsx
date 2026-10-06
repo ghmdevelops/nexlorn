@@ -1,41 +1,30 @@
-import Navbar from './components/Navbar/Navbar.jsx';
-import Hero from './components/Hero/Hero.jsx';
-import Services from './components/Services/Services.jsx';
-import About from './components/About/About.jsx';
-import WhyUs from './components/WhyUs/WhyUs.jsx';
-import Process from './components/Process/Process.jsx';
-import Testimonials from './components/Testimonials/Testimonials.jsx';
-import FAQ from './components/FAQ/FAQ.jsx';
-import CTA from './components/CTA/CTA.jsx';
-import Contact from './components/Contact/Contact.jsx';
-import Footer from './components/Footer/Footer.jsx';
-import CookieConsent from './components/CookieConsent/CookieConsent.jsx';
-import ShareButton from './components/ShareButton/ShareButton.jsx';
-import WhatsAppButton from './components/WhatsAppButton/WhatsAppButton.jsx';
+import Layout from './components/Layout/Layout.jsx';
+import AutomationPage from './pages/AutomationPage/AutomationPage.jsx';
+import BlogIndex from './pages/Blog/BlogIndex.jsx';
+import BlogPost from './pages/Blog/BlogPost.jsx';
+import CasePage from './pages/CasePage/CasePage.jsx';
+import Home from './pages/Home/Home.jsx';
+import NotFound from './pages/NotFound/NotFound.jsx';
+import ServicePage from './pages/ServicePage/ServicePage.jsx';
 import './App.css';
 
-function App() {
+const PAGES = {
+  home: Home,
+  service: ServicePage,
+  automation: AutomationPage,
+  blog: BlogIndex,
+  post: BlogPost,
+  case: CasePage,
+  notFound: NotFound,
+};
+
+function App({ route }) {
+  const Page = PAGES[route.type];
   return (
-    <div className="app">
-      <Navbar />
-      <main>
-        <Hero />
-        <Services />
-        <About />
-        <WhyUs />
-        <Process />
-        <Testimonials />
-        <FAQ />
-        <CTA />
-        <Contact />
-      </main>
-      <Footer />
-      <ShareButton />
-      <WhatsAppButton />
-      <CookieConsent />
-    </div>
+    <Layout contactHref={route.type === 'notFound' ? '/#contato' : '#contato'}>
+      <Page route={route} />
+    </Layout>
   );
 }
 
 export default App;
-

@@ -1,27 +1,27 @@
-import { FaClock, FaHeadset, FaLock, FaSitemap } from 'react-icons/fa';
+import { FaClock, FaComments, FaHeadset, FaLock } from 'react-icons/fa';
 import Reveal from '../Reveal/Reveal.jsx';
 import './WhyUs.css';
 
 const REASONS = [
   {
-    icon: <FaLock />,
-    title: 'Segurança de dados',
-    description: 'Padrões e práticas rigorosas de segurança da informação em todos os projetos, do código à infraestrutura.',
+    icon: <FaComments />,
+    title: 'Sem tecniquês',
+    description: 'Você entende cada decisão do projeto. Explicamos tudo de forma clara, sem jargões e sem surpresas.',
+  },
+  {
+    icon: <FaClock />,
+    title: 'Entregas rápidas e no prazo',
+    description: 'Sprints curtos, entregas contínuas e um cronograma realista para você acompanhar a evolução semana a semana.',
   },
   {
     icon: <FaHeadset />,
     title: 'Suporte próximo',
-    description: 'Time dedicado disponível para acompanhar cada etapa do projeto e responder rapidamente às suas necessidades.',
+    description: 'Um time dedicado que responde rápido, acompanha cada etapa e continua ao seu lado depois do lançamento.',
   },
   {
-    icon: <FaSitemap />,
-    title: 'Metodologia ágil',
-    description: 'Entregas contínuas com sprints curtos, transparência total e ajustes rápidos conforme o negócio evolui.',
-  },
-  {
-    icon: <FaClock />,
-    title: 'Entrega no prazo',
-    description: 'Planejamento realista e gestão de projeto rigorosa para cumprir prazos sem abrir mão da qualidade.',
+    icon: <FaLock />,
+    title: 'Segurança e LGPD',
+    description: 'Boas práticas de segurança da informação e privacidade em todos os projetos, do código à infraestrutura.',
   },
 ];
 
@@ -34,10 +34,10 @@ function WhyUs() {
             Por que a Nexlorn
           </Reveal>
           <Reveal as="h2" delay={80}>
-            Diferenciais que fazem a <span className="gradient-text">diferença no seu resultado</span>
+            Um parceiro de tecnologia que <span className="gradient-text">fala a sua língua</span>
           </Reveal>
           <Reveal as="p" delay={160}>
-            Combinamos tecnologia, processo e pessoas para entregar projetos que geram valor real.
+            Tecnologia de ponta, processo claro e gente de verdade cuidando do seu projeto.
           </Reveal>
         </div>
 

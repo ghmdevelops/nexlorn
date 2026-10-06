@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { FiShield, FiX } from 'react-icons/fi';
+import { CONSENT_KEY as STORAGE_KEY, initAnalytics } from '../../analytics.js';
 import './CookieConsent.css';
-
-const STORAGE_KEY = 'nexlorn_cookie_consent';
 
 function CookieConsent() {
   const [visible, setVisible] = useState(false);
@@ -19,6 +18,7 @@ function CookieConsent() {
   const saveConsent = (value) => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({ value, date: new Date().toISOString() }));
     setVisible(false);
+    initAnalytics();
   };
 
   if (!visible) return null;

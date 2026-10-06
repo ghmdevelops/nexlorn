@@ -5,39 +5,45 @@ import './About.css';
 
 const STATS = [
   { icon: <FaAward />, value: '100%', label: 'Foco em qualidade e resultado' },
-  { icon: <FaRocket />, value: '20+', label: 'Projetos entregues' },
-  { icon: <FaUsers />, value: '15+', label: 'Especialistas na equipe' },
+  { icon: <FaRocket />, value: '35+', label: 'Projetos entregues' },
+  { icon: <FaUsers />, value: '8+', label: 'Especialistas na equipe' },
   { icon: <FaHandshake />, value: '98%', label: 'Taxa de retenção de clientes' },
 ];
 
 const CODE_SNIPPETS = {
-  SAP: `GET /sap/opu/odata/API_SALES_ORDER
-Authorization: Bearer {token}
+  Site: `export const metadata = {
+  title: 'Sua marca no topo do Google',
+};
 
-// Sincroniza pedidos em tempo real
-if (response.status === 200) {
-  integrarComERP(response.data);
+export default function Home() {
+  return <Hero cta="Fale com a gente" />;
 }`,
-  React: `function Dashboard() {
-  const { data } = useMetrics();
-
+  App: `function App() {
   return (
-    <Chart data={data} live />
+    <Tabs>
+      <Screen name="Início" />
+      <Screen name="Pedidos" />
+    </Tabs>
   );
-}`,
+} // iOS + Android, um só código`,
   IA: `const agente = new Agente({
+  canal: 'whatsapp',
   modelo: 'nexlorn-ia',
 });
 
-await agente.executar(
-  'Otimizar fluxo financeiro'
-);`,
-  RPA: `robot.on('nota:recebida', async (doc) => {
-  await validar(doc);
-  await lancarNoERP(doc);
-});
-
-// -60% em tarefas manuais`,
+await agente.atender(cliente); // 24/7`,
+  Python: `@agendar("todo dia às 7h")
+def processar_pedidos():
+    for pedido in erp.novos():
+        ia.classificar(pedido)
+        crm.registrar(pedido)`,
+  Java: `@RestController
+class PedidoController {
+  @GetMapping("/pedidos")
+  List<Pedido> listar() {
+    return mainframe.consultar("PEDIDOS");
+  }
+}`,
   Cloud: `service: nexlorn-api
 provider: aws
 scaling: auto
@@ -109,17 +115,17 @@ function About() {
         <Reveal className="about__content" direction="right" delay={120}>
           <span className="section-label">Sobre a Nexlorn</span>
           <h2>
-            Tecnologia com propósito para negócios que <span className="gradient-text">não param de crescer</span>
+            Transformamos ideias em <span className="gradient-text">produtos digitais que dão resultado</span>
           </h2>
           <p>
-            A Nexlorn nasceu para simplificar a relação entre tecnologia e resultado financeiro.
-            Combinamos consultoria SAP, engenharia de software e inteligência artificial para criar
-            soluções que reduzem custos, eliminam retrabalho e aceleram a tomada de decisão das
-            empresas que confiam em nós.
+            A Nexlorn nasceu para tornar a tecnologia simples e acessível para quem quer crescer.
+            Somos um estúdio de tecnologia e inteligência artificial em São Paulo que cria sites,
+            aplicativos, sistemas e automações para empreendedores e empresas de todo o Brasil.
           </p>
           <p>
-            Nossa equipe multidisciplinar acompanha o projeto do diagnóstico à entrega, garantindo
-            segurança, escalabilidade e um suporte próximo em cada etapa.
+            Nosso time de design, desenvolvimento e IA acompanha você da primeira conversa ao
+            lançamento, e continua ao seu lado depois dele, com segurança, transparência e um
+            suporte próximo em cada etapa.
           </p>
 
           <div className="about__stats">

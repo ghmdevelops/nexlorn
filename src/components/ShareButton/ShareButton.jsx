@@ -3,9 +3,9 @@ import { FaLinkedin, FaWhatsapp, FaXTwitter } from 'react-icons/fa6';
 import { FiCheck, FiCopy, FiShare2 } from 'react-icons/fi';
 import './ShareButton.css';
 
-const SHARE_TITLE = 'Nexlorn | Consultoria SAP, Desenvolvimento e Agentes de IA';
+const SHARE_TITLE = 'Nexlorn | Criação de Sites, Apps e Automação com IA';
 const SHARE_TEXT =
-  'Conheça a Nexlorn: consultoria SAP, desenvolvimento web e mobile, automação e agentes de inteligência artificial para acelerar o seu negócio.';
+  'Tem uma ideia de app ou site e não sabe por onde começar? Conheça a Nexlorn: sites, aplicativos, sistemas e automação com inteligência artificial, do zero ao lançamento.';
 
 function ShareButton() {
   const [open, setOpen] = useState(false);

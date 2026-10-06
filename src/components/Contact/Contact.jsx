@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { FiCheckCircle, FiClock, FiMail, FiMapPin, FiPhone, FiSend } from 'react-icons/fi';
+import { trackEvent } from '../../analytics.js';
+import { COMPANY } from '../../data/company.js';
 import Reveal from '../Reveal/Reveal.jsx';
 import './Contact.css';
 
@@ -8,28 +10,23 @@ const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-const INITIAL_STATE = {
-  name: '',
-  email: '',
-  company: '',
-  phone: '',
-  service: 'SAP',
-  message: '',
-};
-
 const SERVICE_OPTIONS = [
-  'Consultoria em Tecnologia',
-  'SAP',
-  'Desenvolvimento Web',
-  'Desenvolvimento Mobile',
-  'Soluções Sob Medida',
-  'Automação de Processos',
+  'Ainda não sei, quero orientação',
+  'Criação de Sites',
+  'Desenvolvimento de Apps',
+  'Sistemas Sob Medida',
   'IA & Agentes Inteligentes',
+  'Automação de Processos',
+  'Modernização de Sistemas',
+  'Consultoria em Tecnologia',
   'Treinamentos & Cursos',
 ];
 
-function Contact() {
-  const [form, setForm] = useState(INITIAL_STATE);
+const DEFAULT_PLACEHOLDER = 'Conte a sua ideia, o que você precisa ou o desafio que quer resolver';
+
+function Contact({ defaultService = SERVICE_OPTIONS[0], messagePlaceholder = DEFAULT_PLACEHOLDER }) {
+  const initialState = { name: '', email: '', company: '', phone: '', service: defaultService, message: '' };
+  const [form, setForm] = useState(initialState);
   const [status, setStatus] = useState('idle');
 
   const handleChange = (event) => {
@@ -72,7 +69,8 @@ function Contact() {
         { publicKey: EMAILJS_PUBLIC_KEY },
       );
       setStatus('success');
-      setForm(INITIAL_STATE);
+      trackEvent('generate_lead', { form_name: 'contato', service: form.service });
+      setForm(initialState);
     } catch (error) {
       console.error('Erro ao enviar e-mail via EmailJS:', error);
       setStatus('error');
@@ -85,11 +83,11 @@ function Contact() {
         <Reveal className="contact__info" direction="left">
           <span className="section-label">Fale com a gente</span>
           <h2>
-            Vamos construir o próximo <span className="gradient-text">passo do seu negócio</span>
+            Conte a sua ideia. <span className="gradient-text">A gente mostra o caminho.</span>
           </h2>
           <p>
-            Preencha o formulário ou fale diretamente com nosso time comercial. Retornamos em até
-            1 dia útil.
+            Não precisa ter tudo definido: uma ideia, um rascunho ou uma dúvida já são suficientes
+            para começar. Preencha o formulário ou chame no WhatsApp. Retornamos em até 1 dia útil.
           </p>
 
           <ul className="contact__list">
@@ -99,7 +97,7 @@ function Contact() {
               </span>
               <div>
                 <strong>E-mail</strong>
-                <span>contato@nexlorn.com</span>
+                <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
               </div>
             </li>
             <li>
@@ -107,8 +105,8 @@ function Contact() {
                 <FiPhone />
               </span>
               <div>
-                <strong>Telefone</strong>
-                <span>(11) 98183-5197</span>
+                <strong>Telefone e WhatsApp</strong>
+                <a href={`tel:${COMPANY.phone}`}>{COMPANY.phoneDisplay}</a>
               </div>
             </li>
             <li>
@@ -117,7 +115,7 @@ function Contact() {
               </span>
               <div>
                 <strong>Endereço</strong>
-                <span>Av. Paulista, 1000 - São Paulo, SP</span>
+                <address>{COMPANY.addressDisplay}</address>
               </div>
             </li>
             <li>
@@ -126,7 +124,7 @@ function Contact() {
               </span>
               <div>
                 <strong>Horário</strong>
-                <span>Seg. a Sex., 9h às 18h</span>
+                <span>{COMPANY.hoursDisplay}</span>
               </div>
             </li>
           </ul>
@@ -207,7 +205,7 @@ function Contact() {
               name="message"
               rows={5}
               maxLength={1000}
-              placeholder="Conte um pouco sobre o seu projeto ou desafio"
+              placeholder={messagePlaceholder}
               value={form.message}
               onChange={handleChange}
               required

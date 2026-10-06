@@ -45,6 +45,8 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -207,8 +209,79 @@ input, textarea, select {
   text-align: center;
 }
 
+.anim-in,
+.anim-slide {
+  animation: anim-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.anim-slide {
+  animation-name: anim-slide;
+}
+
+@keyframes anim-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+@keyframes anim-slide {
+  from {
+    transform: translateY(24px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-in,
+  .anim-slide {
+    animation: none;
+  }
+}
+
 @media (max-width: 768px) {
   .section {
     padding: 72px 0;
+  }
+
+  .section-tight {
+    padding: 56px 0;
+  }
+
+  .section-heading {
+    margin-bottom: 40px;
+  }
+
+  .section-heading p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    padding: 5px 12px;
+    margin-bottom: 16px;
+  }
+
+  .section-heading {
+    margin-bottom: 32px;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(1.55rem, 6.6vw, 1.9rem);
+  }
+
+  .btn {
+    white-space: normal;
+    text-align: center;
+    padding: 14px 22px;
   }
 }

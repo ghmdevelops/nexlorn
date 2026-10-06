@@ -1,14 +1,14 @@
 import { FaWhatsapp } from 'react-icons/fa';
+import { COMPANY } from '../../data/company.js';
 import './WhatsAppButton.css';
 
-const PHONE = '5511981835197';
-const MESSAGE = 'Oi! 👋 Estou explorando soluções para potencializar meu negócio e a Nexlorn chamou minha atenção. Gostaria de agendar uma consultoria para entender melhor como vocês podem ajudar. Qual seria o melhor horário?';
+const MESSAGE = 'Oi! 👋 Tenho uma ideia de projeto (site, app, sistema ou automação com IA) e gostaria de conversar com a Nexlorn para entender por onde começar. Qual seria o melhor horário?';
 
 function WhatsAppButton() {
   return (
     <a
       className="whatsapp-button"
-      href={`https://wa.me/${PHONE}?text=${encodeURIComponent(MESSAGE)}`}
+      href={`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent(MESSAGE)}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar no WhatsApp"

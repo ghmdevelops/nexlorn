@@ -1,13 +1,20 @@
-import { FiArrowRight, FiCheckCircle } from 'react-icons/fi';
-import Reveal from '../Reveal/Reveal.jsx';
+import { FiArrowRight, FiCheck, FiCheckCircle, FiClock } from 'react-icons/fi';
+import { FaApple, FaGooglePlay, FaRobot } from 'react-icons/fa';
 import './Hero.css';
 
-const HERO_TAGS = ['Consultoria SAP', 'Web & Mobile', 'IA & Agentes Inteligentes'];
+const HERO_TAGS = ['Sites que vendem', 'Apps iOS e Android', 'Automação com IA'];
 
 const HERO_STATS = [
-  { value: '15+', label: 'Especialistas dedicados' },
-  { value: '20+', label: 'Projetos entregues' },
+  { value: '8+', label: 'Especialistas dedicados' },
+  { value: '35+', label: 'Projetos entregues' },
   { value: '98%', label: 'Clientes satisfeitos' },
+];
+
+const JOURNEY = [
+  { label: 'Ideia e objetivos', status: 'done' },
+  { label: 'Protótipo aprovado', status: 'done' },
+  { label: 'Desenvolvimento', status: 'active', progress: 80 },
+  { label: 'Lançamento', status: 'next' },
 ];
 
 function Hero() {
@@ -16,74 +23,88 @@ function Hero() {
       <div className="hero__bg" aria-hidden="true" />
       <div className="container hero__inner">
         <div className="hero__content">
-          <Reveal as="span" className="section-label" direction="down">
-            Nexlorn Fintech, Tecnologia &amp; IA
-          </Reveal>
-          <Reveal as="h1" delay={80}>
-            Tecnologia e inteligência financeira para <span className="gradient-text">acelerar o seu negócio</span>
-          </Reveal>
-          <Reveal as="p" className="hero__subtitle" delay={160}>
-            Unimos consultoria SAP, desenvolvimento web e mobile, criação de soluções sob medida
-            e automação com inteligência artificial e agentes inteligentes para transformar
-            operações complexas em resultados simples, seguros e escaláveis.
-          </Reveal>
+          <span className="section-label hero__label anim-in">
+            <span className="hero__pulse" aria-hidden="true" />
+            Estúdio de tecnologia e IA em São Paulo
+          </span>
+          <h1 className="anim-slide">
+            Tem uma ideia de app ou site e{' '}
+            <span className="gradient-text">não sabe por onde começar?</span>
+          </h1>
+          <p className="hero__subtitle anim-in" style={{ animationDelay: '120ms' }}>
+            A Nexlorn tira a sua ideia do papel, do primeiro rascunho ao lançamento. Criamos
+            sites, aplicativos, sistemas sob medida e automações com inteligência artificial, com
+            design moderno e um time que explica tudo sem tecniquês.
+          </p>
 
-          <Reveal className="hero__tags" delay={240}>
+          <div className="hero__tags anim-in" style={{ animationDelay: '200ms' }}>
             {HERO_TAGS.map((tag) => (
               <span key={tag} className="hero__tag">
                 <FiCheckCircle /> {tag}
               </span>
             ))}
-          </Reveal>
+          </div>
 
-          <Reveal className="hero__actions" delay={300}>
+          <div className="hero__actions anim-in" style={{ animationDelay: '260ms' }}>
             <a href="#contato" className="btn btn-primary">
-              Solicitar orçamento <FiArrowRight />
+              Quero tirar minha ideia do papel <FiArrowRight />
             </a>
-            <a href="#servicos" className="btn btn-outline">
-              Conhecer serviços
+            <a href="#processo" className="btn btn-outline">
+              Ver como funciona
             </a>
-          </Reveal>
+          </div>
 
-          <Reveal className="hero__stats" delay={360}>
+          <div className="hero__stats anim-in" style={{ animationDelay: '320ms' }}>
             {HERO_STATS.map((stat) => (
               <div key={stat.label} className="hero__stat">
                 <strong>{stat.value}</strong>
                 <span>{stat.label}</span>
               </div>
             ))}
-          </Reveal>
+          </div>
         </div>
 
-        <Reveal className="hero__panel" direction="left" delay={200}>
-          <div className="hero__panel-glow" aria-hidden="true" />
+        <div className="hero__panel anim-in" style={{ animationDelay: '200ms' }} aria-hidden="true">
+          <div className="hero__panel-glow" />
           <div className="hero__card hero__card--main">
             <div className="hero__card-top">
-              <span>Painel Nexlorn</span>
-              <span className="hero__badge">Ao vivo</span>
+              <span>Seu projeto</span>
+              <span className="hero__badge">Em andamento</span>
             </div>
-            <div className="hero__metric">
-              <span>Eficiência operacional</span>
-              <strong>+42%</strong>
-            </div>
-            <div className="hero__bars">
-              <span style={{ height: '40%' }} />
-              <span style={{ height: '65%' }} />
-              <span style={{ height: '50%' }} />
-              <span style={{ height: '85%' }} />
-              <span style={{ height: '70%' }} />
-              <span style={{ height: '95%' }} />
-            </div>
+            <ol className="hero__journey">
+              {JOURNEY.map((step) => (
+                <li key={step.label} className={`hero__step hero__step--${step.status}`}>
+                  <span className="hero__step-icon">
+                    {step.status === 'done' && <FiCheck />}
+                    {step.status === 'active' && <span className="hero__step-dot" />}
+                    {step.status === 'next' && <FiClock />}
+                  </span>
+                  <div className="hero__step-body">
+                    <span>{step.label}</span>
+                    {step.progress && (
+                      <div className="hero__progress">
+                        <span style={{ width: `${step.progress}%` }} />
+                      </div>
+                    )}
+                  </div>
+                  {step.progress && <strong>{step.progress}%</strong>}
+                </li>
+              ))}
+            </ol>
           </div>
           <div className="hero__card hero__card--float">
-            <span className="hero__badge hero__badge--gold">SAP S/4HANA</span>
-            <p>Integração completa dos seus processos financeiros</p>
+            <span className="hero__badge hero__badge--gold">App publicado</span>
+            <p className="hero__stores">
+              <FaApple /> <FaGooglePlay /> Na App Store e no Google Play
+            </p>
           </div>
           <div className="hero__card hero__card--float-2">
-            <span className="hero__badge">Agentes de IA</span>
-            <p>-60% em tarefas manuais com automação inteligente</p>
+            <span className="hero__badge">
+              <FaRobot /> Agente de IA
+            </span>
+            <p>Atende seus clientes no WhatsApp 24 horas por dia</p>
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

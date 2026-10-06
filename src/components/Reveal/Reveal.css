@@ -29,6 +29,22 @@
   transform: translate(0, 0) scale(1);
 }
 
+@media (max-width: 768px) {
+  .reveal--up,
+  .reveal--left,
+  .reveal--right {
+    transform: translateY(28px);
+  }
+
+  .reveal--down {
+    transform: translateY(-20px);
+  }
+
+  .reveal--visible {
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     transition: none !important;

@@ -216,6 +216,13 @@
   color: var(--color-accent);
 }
 
+@media (max-width: 1140px) {
+  .navbar__links {
+    gap: 20px;
+    font-size: 0.9rem;
+  }
+}
+
 @media (max-width: 960px) {
   .navbar__toggle {
     display: flex;
@@ -223,6 +230,31 @@
 
   .navbar__links {
     display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .navbar {
+    padding: 16px 0;
+  }
+
+  .navbar--scrolled {
+    padding: 10px 0;
+  }
+
+  .navbar__logo {
+    font-size: 1.15rem;
+  }
+
+  .navbar__logo-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    font-size: 1rem;
+  }
+
+  .navbar__drawer-header {
+    padding: 16px 20px;
   }
 }
 

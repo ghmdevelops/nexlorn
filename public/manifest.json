@@ -1,7 +1,7 @@
 {
-  "name": "Nexlorn - Tecnologia, SAP e IA",
+  "name": "Nexlorn - Sites, Apps e Automação com IA",
   "short_name": "Nexlorn",
-  "description": "Consultoria SAP, desenvolvimento web e mobile, automação e agentes de inteligência artificial.",
+  "description": "Criação de sites, desenvolvimento de aplicativos, sistemas sob medida e automação com inteligência artificial.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

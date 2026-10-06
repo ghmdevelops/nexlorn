@@ -63,3 +63,24 @@
     flex: 1;
   }
 }
+
+@media (max-width: 560px) {
+  .cta__box {
+    padding: 32px 22px;
+    gap: 28px;
+  }
+
+  .cta__content p {
+    font-size: 0.95rem;
+  }
+
+  .cta__actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cta__actions .btn {
+    flex: none;
+    width: 100%;
+  }
+}

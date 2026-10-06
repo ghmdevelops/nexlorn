@@ -45,9 +45,20 @@
   font-size: 0.95rem;
 }
 
-.contact__list span {
+.contact__list span,
+.contact__list a,
+.contact__list address {
   color: var(--color-text-dim);
   font-size: 0.85rem;
+  font-style: normal;
+}
+
+.contact__list a {
+  transition: color var(--transition);
+}
+
+.contact__list a:hover {
+  color: var(--color-accent);
 }
 
 .contact__form {
@@ -133,11 +144,30 @@
 }
 
 @media (max-width: 640px) {
+  .contact__inner {
+    gap: 40px;
+  }
+
+  .contact__info p {
+    margin-bottom: 28px;
+  }
+
+  .contact__list {
+    gap: 18px;
+  }
+
   .contact__row {
     grid-template-columns: 1fr;
   }
 
   .contact__form {
-    padding: 28px 22px;
+    padding: 24px 18px;
+    gap: 16px;
+  }
+
+  .contact__field input,
+  .contact__field select,
+  .contact__field textarea {
+    font-size: 1rem;
   }
 }

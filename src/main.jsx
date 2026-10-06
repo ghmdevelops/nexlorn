@@ -1,10 +1,18 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
+import { initAnalytics, trackContactClicks } from './analytics.js'
+import { mount } from './mount.js'
+import { findRoute } from './routes.js'
 
-createRoot(document.getElementById('root')).render(
+const route = findRoute(window.location.pathname)
+if (import.meta.env.DEV) document.title = route.title
+
+mount(
   <StrictMode>
-    <App />
+    <App route={route} />
   </StrictMode>,
 )
+
+initAnalytics()
+trackContactClicks()

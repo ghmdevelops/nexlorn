@@ -1,0 +1,104 @@
+.blocks {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.blocks > * + * {
+  margin-top: 18px;
+}
+
+.blocks h2 {
+  margin-top: 44px;
+  font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+}
+
+.blocks h3 {
+  margin-top: 30px;
+  font-size: 1.2rem;
+}
+
+.blocks ul,
+.blocks ol {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 22px;
+}
+
+.blocks ul {
+  list-style: disc;
+}
+
+.blocks ol {
+  list-style: decimal;
+}
+
+.blocks li::marker {
+  color: var(--color-accent);
+}
+
+.blocks strong {
+  color: var(--color-text);
+}
+
+.blocks a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.blocks__table {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.blocks table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.blocks th,
+.blocks td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.blocks thead th {
+  background: var(--color-surface-alt);
+  color: #fff;
+  font-weight: 600;
+}
+
+.blocks tbody th {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.blocks tbody tr:last-child > * {
+  border-bottom: none;
+}
+
+.blocks__callout {
+  padding: 18px 22px;
+  border-left: 3px solid var(--color-gold);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: rgba(246, 196, 83, 0.08);
+  color: var(--color-text);
+  font-size: 0.98rem;
+}
+
+@media (max-width: 560px) {
+  .blocks {
+    font-size: 1rem;
+  }
+
+  .blocks h2 {
+    margin-top: 36px;
+  }
+}

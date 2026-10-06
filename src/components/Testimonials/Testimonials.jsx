@@ -5,12 +5,6 @@ import './Testimonials.css';
 const TESTIMONIALS = [
   {
     quote:
-      'A Nexlorn conduziu nossa migração para o SAP S/4HANA com muita clareza. O suporte da equipe foi essencial para reduzirmos o tempo de fechamento financeiro.',
-    name: 'Marina Costa',
-    role: 'CFO, Grupo Vantana',
-  },
-  {
-    quote:
       'O aplicativo mobile desenvolvido pela Nexlorn elevou a experiência dos nossos clientes e aumentou em 35% o engajamento no primeiro trimestre.',
     name: 'Rafael Andrade',
     role: 'Head de Produto, Orbita Pay',
@@ -22,6 +16,35 @@ const TESTIMONIALS = [
     role: 'Diretora de Operações, Fintera',
   },
 ];
+
+const PREVIEW_TESTIMONIALS = import.meta.env.DEV
+  ? [
+      {
+        quote:
+          'Os fluxos que a Nexlorn montou no n8n tiraram da nossa equipe um monte de tarefas repetitivas. Hoje tudo roda sozinho e a gente foca no que importa.',
+        name: 'Exemplo 1',
+        role: 'Automação com n8n',
+      },
+      {
+        quote:
+          'Nossa loja online ficou rápida, bonita e fácil de gerenciar. A Nexlorn cuidou de tudo, do layout à publicação, e explicou cada etapa sem complicação.',
+        name: 'Exemplo 2',
+        role: 'Loja online',
+      },
+      {
+        quote:
+          'A Nexlorn desenvolveu o mecanismo do nosso SaaS para Instagram com muita qualidade técnica, entregas frequentes e comunicação transparente.',
+        name: 'Exemplo 3',
+        role: 'SaaS para Instagram',
+      },
+      {
+        quote:
+          'Eu tinha só uma ideia e nenhum conhecimento técnico. O time me guiou do protótipo ao lançamento e hoje o app está nas lojas.',
+        name: 'Exemplo 4',
+        role: 'App iOS e Android',
+      },
+    ].map((testimonial) => ({ ...testimonial, preview: true }))
+  : [];
 
 function Testimonials() {
   return (
@@ -40,8 +63,11 @@ function Testimonials() {
         </div>
 
         <div className="testimonials__grid">
-          {TESTIMONIALS.map((testimonial, index) => (
-            <Reveal as="figure" key={testimonial.name} className="testimonial-card" direction="up" delay={index * 100}>
+          {[...TESTIMONIALS, ...PREVIEW_TESTIMONIALS].map((testimonial, index) => (
+            <Reveal as="figure" key={testimonial.name} className="testimonial-card" direction="up" delay={(index % 3) * 100}>
+              {import.meta.env.DEV && testimonial.preview && (
+                <span className="testimonial-card__preview">Exemplo · só aparece no npm run dev</span>
+              )}
               <FaQuoteLeft className="testimonial-card__quote-icon" />
               <div className="testimonial-card__stars">
                 {Array.from({ length: 5 }).map((_, i) => (

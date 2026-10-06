@@ -1,10 +1,14 @@
 import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
 import '../../index.css';
+import { initAnalytics, trackContactClicks } from '../../analytics.js';
+import { mount } from '../../mount.js';
 import PrivacyPolicy from './PrivacyPolicy.jsx';
 
-createRoot(document.getElementById('root')).render(
+mount(
   <StrictMode>
     <PrivacyPolicy />
   </StrictMode>,
 );
+
+initAnalytics();
+trackContactClicks();

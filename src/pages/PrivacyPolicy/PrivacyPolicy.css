@@ -100,3 +100,32 @@
   font-size: 0.85rem;
   margin: 0;
 }
+
+@media (max-width: 560px) {
+  .legal-header {
+    padding: 14px 0;
+  }
+
+  .legal-header__back {
+    font-size: 0.85rem;
+  }
+
+  .legal-content h1 {
+    font-size: 1.75rem;
+  }
+
+  .legal-content h2 {
+    margin-top: 28px;
+    font-size: 1.15rem;
+  }
+
+  .legal-content p,
+  .legal-content li {
+    font-size: 0.95rem;
+  }
+
+  .legal-content__contact {
+    flex-wrap: wrap;
+    word-break: break-all;
+  }
+}

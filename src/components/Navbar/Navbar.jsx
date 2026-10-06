@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react';
 import { FiArrowRight, FiMail, FiMenu, FiPhone, FiX } from 'react-icons/fi';
+import { COMPANY } from '../../data/company.js';
 import './Navbar.css';
 
 const NAV_LINKS = [
-  { label: 'Início', href: '#inicio' },
-  { label: 'Serviços', href: '#servicos' },
-  { label: 'Sobre', href: '#sobre' },
-  { label: 'Diferenciais', href: '#diferenciais' },
-  { label: 'Depoimentos', href: '#depoimentos' },
-  { label: 'FAQ', href: '#faq' },
-  { label: 'Contato', href: '#contato' },
+  { label: 'Serviços', href: '/#servicos' },
+  { label: 'Automação', href: '/automacao-para-empresas/' },
+  { label: 'Projetos', href: '/#projetos' },
+  { label: 'Sobre', href: '/#sobre' },
+  { label: 'Blog', href: '/blog/' },
+  { label: 'FAQ', href: '/#faq' },
 ];
 
-function Navbar() {
+function Navbar({ contactHref = '#contato' }) {
+  const links = [...NAV_LINKS, { label: 'Contato', href: contactHref }];
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -31,21 +32,21 @@ function Navbar() {
     <>
       <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
         <div className="container navbar__inner">
-          <a href="#inicio" className="navbar__logo" onClick={() => setOpen(false)}>
+          <a href="/" className="navbar__logo" aria-label="Nexlorn - página inicial" onClick={() => setOpen(false)}>
             <span className="navbar__logo-mark">N</span>
             <span className="navbar__logo-text">
               Nex<span className="gradient-text">lorn</span>
             </span>
           </a>
 
-          <nav className="navbar__links">
-            {NAV_LINKS.map((link) => (
+          <nav className="navbar__links" aria-label="Menu principal">
+            {links.map((link) => (
               <a key={link.href} href={link.href}>
                 {link.label}
               </a>
             ))}
-            <a href="#contato" className="btn btn-primary navbar__cta">
-              Fale Conosco
+            <a href={contactHref} className="btn btn-primary navbar__cta">
+              Começar projeto
             </a>
           </nav>
 
@@ -67,7 +68,7 @@ function Navbar() {
 
       <aside className={`navbar__drawer ${open ? 'navbar__drawer--open' : ''}`}>
         <div className="navbar__drawer-header">
-          <a href="#inicio" className="navbar__logo" onClick={() => setOpen(false)}>
+          <a href="/" className="navbar__logo" aria-label="Nexlorn - página inicial" onClick={() => setOpen(false)}>
             <span className="navbar__logo-mark">N</span>
             <span className="navbar__logo-text">
               Nex<span className="gradient-text">lorn</span>
@@ -78,8 +79,8 @@ function Navbar() {
           </button>
         </div>
 
-        <nav className="navbar__drawer-links">
-          {NAV_LINKS.map((link, index) => (
+        <nav className="navbar__drawer-links" aria-label="Menu">
+          {links.map((link, index) => (
             <a key={link.href} href={link.href} onClick={() => setOpen(false)}>
               <span className="navbar__drawer-index">{String(index + 1).padStart(2, '0')}</span>
               {link.label}
@@ -88,15 +89,15 @@ function Navbar() {
         </nav>
 
         <div className="navbar__drawer-footer">
-          <a href="#contato" className="btn btn-primary btn-block" onClick={() => setOpen(false)}>
-            Fale Conosco <FiArrowRight />
+          <a href={contactHref} className="btn btn-primary btn-block" onClick={() => setOpen(false)}>
+            Começar meu projeto <FiArrowRight />
           </a>
           <div className="navbar__drawer-contact">
-            <a href="mailto:contato@nexlorn.com">
-              <FiMail /> contato@nexlorn.com
+            <a href={`mailto:${COMPANY.email}`}>
+              <FiMail /> {COMPANY.email}
             </a>
-            <a href="tel:+5511981835197">
-              <FiPhone /> (11) 98183-5197
+            <a href={`tel:${COMPANY.phone}`}>
+              <FiPhone /> {COMPANY.phoneDisplay}
             </a>
           </div>
         </div>

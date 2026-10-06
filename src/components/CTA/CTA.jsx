@@ -1,4 +1,6 @@
-import { FiArrowRight, FiPhoneCall } from 'react-icons/fi';
+import { FiArrowRight } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
+import { COMPANY } from '../../data/company.js';
 import Reveal from '../Reveal/Reveal.jsx';
 import './CTA.css';
 
@@ -7,18 +9,23 @@ function CTA() {
     <section className="section-tight cta">
       <Reveal as="div" className="container cta__box" direction="zoom">
         <div className="cta__content">
-          <h2>Pronto para transformar a tecnologia do seu negócio?</h2>
+          <h2>A sua ideia merece sair do papel. Que tal começar hoje?</h2>
           <p>
-            Fale com nossos especialistas e descubra como SAP, desenvolvimento e agentes de IA
-            podem acelerar seus resultados.
+            Conte o que você imagina e receba um caminho claro para lançar o seu site, app ou
+            automação com IA. Sem compromisso e sem tecniquês.
           </p>
         </div>
         <div className="cta__actions">
           <a href="#contato" className="btn btn-primary">
-            Solicitar proposta <FiArrowRight />
+            Começar meu projeto <FiArrowRight />
           </a>
-          <a href="tel:+5511981835197" className="btn btn-outline cta__phone">
-            <FiPhoneCall /> (11) 98183-5197
+          <a
+            href={`https://wa.me/${COMPANY.whatsapp}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-outline cta__phone"
+          >
+            <FaWhatsapp /> Chamar no WhatsApp
           </a>
         </div>
       </Reveal>
